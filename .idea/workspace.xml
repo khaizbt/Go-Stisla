@@ -2,12 +2,224 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e734f7b2-6637-4b77-8aac-a569462248c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/assets/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/base/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/base/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/route/web/auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user_controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/components.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/components.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/custom.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/reverse.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/skins/reverse.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/skins/reverse.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/style.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-600.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-600.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-600.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-600.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-600.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-700.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-700.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-700.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-700.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-700.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-800.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-800.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-800.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-800.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-800.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/nunito-v9-latin-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Black-FD-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Black-FD-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Black-FD-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Black-FD-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Bold-FD-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Bold-FD-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Bold-FD-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Bold-FD-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-FD-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-FD-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-FD-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-FD-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Light-FD-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Light-FD-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Light-FD-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Light-FD-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Medium-FD-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Medium-FD-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Medium-FD-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Medium-FD-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Thin-FD-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Thin-FD-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Thin-FD-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits-Without-Latin/Vazir-Thin-FD-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Black-FD.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Black-FD.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Black-FD.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Black-FD.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Bold-FD.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Bold-FD.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Bold-FD.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Bold-FD.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-FD.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-FD.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-FD.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-FD.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Light-FD.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Light-FD.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Light-FD.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Light-FD.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Medium-FD.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Medium-FD.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Medium-FD.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Medium-FD.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Thin-FD.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Thin-FD.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Thin-FD.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Farsi-Digits/Vazir-Thin-FD.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Black.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Black.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Black.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Bold.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Light.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Light.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Medium.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Medium.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Thin.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Thin.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir-Thin.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Vazir.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Black-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Black-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Black-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Black-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Bold-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Bold-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Bold-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Bold-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Light-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Light-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Light-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Light-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Medium-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Medium-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Medium-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Medium-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Thin-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Thin-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Thin-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-Thin-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-WOL.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-WOL.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-WOL.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/Without-Latin/Vazir-WOL.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/font-face.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/fonts/vazir/sample.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/avatar/avatar-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/avatar/avatar-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/avatar/avatar-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/avatar/avatar-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/avatar/avatar-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/drawkit/drawkit-full-stack-man-colour.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/drawkit/drawkit-mobile-article-colour.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/drawkit/drawkit-nature-man-colour.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/drawkit/revenue-graph-colour.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/example-image-50.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/example-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img06.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img07.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img08.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img09.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/news/img17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/p-250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/p-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/products/product-1-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/products/product-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/products/product-2-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/products/product-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/products/product-3-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/products/product-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/products/product-4-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/products/product-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/products/product-5-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/products/product-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/stisla-fill.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/stisla-light.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/stisla-transparent.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/stisla.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/unsplash/andre-benz-1214056-unsplash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/unsplash/eberhard-grossgasteiger-1207565-unsplash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/unsplash/login-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/auth-register.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/bootstrap-modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/components-chat-box.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/components-multiple-upload.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/components-statistic.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/components-table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/components-user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/features-post-create.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/features-posts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/features-setting-detail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/forms-advanced-forms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/gmaps-advanced-route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/gmaps-draggable-marker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/gmaps-geocoding.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/gmaps-geolocation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/gmaps-marker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/gmaps-multiple-marker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/gmaps-route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/gmaps-simple.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/index-0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/modules-calendar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/modules-chartjs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/modules-datatables.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/modules-ion-icons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/modules-slider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/modules-sparkline.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/modules-sweetalert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/modules-toastr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/modules-vector-map.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/page/utilities-contact.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/stisla.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/base/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/base/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/base/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/base/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/pages/auth-register.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/pages/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/pages/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +249,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -45,6 +258,14 @@
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Go SHop" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Project\GoLang\Stisla\web\view" />
+      <recent name="E:\Project\GoLang\Stisla" />
+      <recent name="E:\Project\GoLang\Stisla\web\pages" />
+      <recent name="E:\Project\GoLang\Stisla\web\base" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">

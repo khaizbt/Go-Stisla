@@ -15,6 +15,16 @@
             <img src="../../../assets/img/stisla-fill.svg" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
             <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">{{ .Title }}</span></h4>
             <p class="text-muted">Before you get started, you must login or register if you don't already have an account.</p>
+            {{ if .Error }}
+            <div class="alert alert-danger alert-dismissible show fade">
+              <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                  <span>×</span>
+                </button>
+               {{  .Error }}
+              </div>
+            </div>
+            {{ end }}
             <form method="POST" action="/login" class="needs-validation" novalidate="">
               <div class="form-group">
                 <label for="email">Email</label>
@@ -28,7 +38,7 @@
                 <div class="d-block">
                   <label for="password" class="control-label">Password</label>
                 </div>
-                <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                <input id="password" min="6" type="password" class="form-control" name="password" tabindex="2" required>
                 <div class="invalid-feedback">
                   please fill in your password
                 </div>

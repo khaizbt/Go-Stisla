@@ -14,6 +14,7 @@ type (
 		Login(input entity.LoginEmailInput) (model.User, error)
 		GetUserById(ID int) (model.User, error)
 		UpdateProfile(input entity.DataUserInput) (bool, error)
+		CreateUser(input entity.DataUserInput) (bool, error)
 	}
 
 	service struct {
@@ -80,6 +81,16 @@ func (s *service) UpdateProfile(input entity.DataUserInput) (bool, error) {
 
 	if err != nil {
 		return false, err
+	}
+
+	return true, nil
+}
+
+func (s *service) CreateUser(input entity.DataUserInput) (bool, error) {
+	cekUser, _ := s.repository.FindUserByEmail(input.Email)
+
+	if cekUser.ID != 0 {
+		return false, errors.New("Email has been registered")
 	}
 
 	return true, nil

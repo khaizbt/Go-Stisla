@@ -12,6 +12,7 @@ func RouteUser(route *gin.Engine, service service.UserService) {
 	authService := config.NewServiceAuth()
 	userController := controller.NewUserController(service, authService)
 	userMiddleware := middleware.AuthMiddlewareUser(authService, service) // middl.AuthMiddlewareManager(authService, service
+
 	//API
 	api := route.Group("/api/v1/")
 	api.POST("login", userController.Login)
@@ -21,5 +22,7 @@ func RouteUser(route *gin.Engine, service service.UserService) {
 	route.LoadHTMLGlob("web/view/**/*")
 	route.GET("/login", userController.LoginIndex)
 	route.GET("/register", userController.RegisterIndex)
+	route.POST("/register", userController.RegisterStore)
 	route.POST("/login", userController.LoginBE)
+	route.GET("/delete1-session", userController.DeleteSession)
 }

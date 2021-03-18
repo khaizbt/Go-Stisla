@@ -109,15 +109,52 @@ func (h *userController) LoginBE(c *gin.Context) {
 		fmt.Println(err)
 		return
 	}
+
+	loggedInUser, err := h.userService.Login(input)
+
+	fmt.Println(err)
+
+	if err != nil {
+		c.HTML(http.StatusOK, "pages/login", gin.H{
+			"Error": "Credential Not Found",
+			"Title": "Login",
+		})
+		return
+	}
+
+	token, _ := h.authService.GenerateTokenUser(loggedInUser.ID)
+
 	session := sessions.Default(c)
-	if session.Get("hello") != "world" {
-		session.Set("hello", "world")
+	if session.Get("token") != token {
+		session.Set("token", token)
+		session.Options(sessions.Options{
+			MaxAge: 3600 * 12, //Session Will Exp in 12 Hours
+		})
 		session.Save()
 	}
 
-	fmt.Println(session.Get("hello"))
-
+	fmt.Println(token)
 	c.Redirect(http.StatusFound, "/register")
+}
+
+func (h *userController) RegisterStore(c *gin.Context) {
+	var input entity.DataUserInput
+
+	err := c.ShouldBind(&input)
+
+	if err != nil {
+		c.Redirect(http.StatusUnprocessableEntity, "/register")
+		return
+	}
+
+	_, err = h.userService.CreateUser(input)
+
+	if err != nil {
+		c.Redirect(http.StatusBadGateway, "/register")
+		return
+	}
+
+	c.Redirect(http.StatusFound, "/dashboard")
 }
 
 func (h *userController) RegisterIndex(c *gin.Context) {
@@ -127,8 +164,30 @@ func (h *userController) RegisterIndex(c *gin.Context) {
 }
 
 func (h *userController) LoginIndex(c *gin.Context) {
+	session := sessions.Default(c)
+	if session.Get("token") != nil {
+		c.Redirect(http.StatusFound, "/dashboard") //Force Redirect if authenticated
+	}
 	c.HTML(http.StatusOK, "pages/login", gin.H{
 		"Title": "Login",
 		"Year":  "2021",
 	})
+}
+
+func (h *userController) Dashboard(c *gin.Context) {
+	c.HTML(http.StatusOK, "pages/dashboard", gin.H{})
+}
+
+func (h *userController) DeleteSession(c *gin.Context) {
+	fmt.Println("ada")
+	session := sessions.Default(c)
+	session.Clear()
+	session.Set("token", nil)
+	session.Options(sessions.Options{
+		MaxAge: -1,
+	})
+	session.Save()
+	fmt.Println(session.Get("token"))
+	//c.Redirect(301, "/login")
+
 }

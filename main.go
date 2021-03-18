@@ -4,11 +4,13 @@ import (
 	"fmt"
 	"github.com/getsentry/sentry-go"
 	sentrygin "github.com/getsentry/sentry-go/gin"
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/joho/godotenv"
+
 	"goshop/middleware"
 	"goshop/repository"
 	"goshop/route"
-	"goshop/route/web"
 	"goshop/service"
 	"log"
 	"os"
@@ -39,11 +41,12 @@ func main() {
 	secureMiddleware := middleware.SecureMiddleware()
 
 	router := gin.Default()
+	store := cookie.NewStore([]byte("ini-secret-api"))
+	router.Use(sessions.Sessions("session", store))
 	router.Static("/assets", "./web/assets")
 	router.Use(secureMiddleware)
 	router.Use(sentrygin.New(sentrygin.Options{}))
 	route.RouteUser(router, userService)
-	web.Auth(router)
 
 	router.Run(":8000")
 }

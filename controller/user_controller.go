@@ -1,6 +1,8 @@
 package controller
 
 import (
+	"fmt"
+	"github.com/gin-contrib/sessions"
 	"goshop/config"
 	"goshop/entity"
 	"goshop/helper"
@@ -10,6 +12,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
+
+const SESSION_ID = "id"
 
 type userController struct {
 	userService service.UserService
@@ -96,4 +100,35 @@ func (h *userController) UpdateProfile(c *gin.Context) {
 
 	response := helper.APIResponse("Account has been registered", http.StatusOK, "success", updateUser)
 	c.JSON(http.StatusOK, response)
+}
+
+func (h *userController) LoginBE(c *gin.Context) {
+	var input entity.LoginEmailInput
+	err := c.ShouldBind(&input)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	session := sessions.Default(c)
+	if session.Get("hello") != "world" {
+		session.Set("hello", "world")
+		session.Save()
+	}
+
+	fmt.Println(session.Get("hello"))
+
+	c.Redirect(http.StatusFound, "/register")
+}
+
+func (h *userController) RegisterIndex(c *gin.Context) {
+	c.HTML(http.StatusOK, "pages/register", gin.H{
+		"Title": "Register",
+	})
+}
+
+func (h *userController) LoginIndex(c *gin.Context) {
+	c.HTML(http.StatusOK, "pages/login", gin.H{
+		"Title": "Login",
+		"Year":  "2021",
+	})
 }

@@ -19,6 +19,7 @@ func RouteUser(route *gin.Engine, service service.UserService) {
 	api.POST("update-account", userMiddleware, userController.UpdateProfile)
 
 	//WEB
+	route.MaxMultipartMemory = 8 << 20
 	route.LoadHTMLGlob("web/view/**/*")
 	route.GET("/login", userController.LoginIndex)
 	route.GET("/register", userController.RegisterIndex)

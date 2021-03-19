@@ -14,7 +14,7 @@ type (
 		Login(input entity.LoginEmailInput) (model.User, error)
 		GetUserById(ID int) (model.User, error)
 		UpdateProfile(input entity.DataUserInput) (bool, error)
-		CreateUser(input entity.DataUserInput) (bool, error)
+		CreateUser(input entity.CreateUserInput) (bool, error)
 	}
 
 	service struct {
@@ -86,12 +86,37 @@ func (s *service) UpdateProfile(input entity.DataUserInput) (bool, error) {
 	return true, nil
 }
 
-func (s *service) CreateUser(input entity.DataUserInput) (bool, error) {
+func (s *service) CreateUser(input entity.CreateUserInput) (bool, error) {
 	cekUser, _ := s.repository.FindUserByEmail(input.Email)
 
 	if cekUser.ID != 0 {
 		return false, errors.New("Email has been registered")
 	}
+
+	user := model.User{
+		Name:       input.Name,
+		Email:      input.Email,
+		Username:   input.Username,
+		Phone:      input.Phone,
+		Address:    input.Address,
+		Avatar:     input.Avatar,
+		IdUserType: 2,
+	}
+
+	pass, err := bcrypt.GenerateFromPassword([]byte(input.Password), bcrypt.MinCost)
+
+	if err != nil {
+		return false, err
+	}
+	user.Password = string(pass)
+
+	_, err = s.repository.CreateUser(user)
+
+	if err != nil {
+		return false, err
+	}
+
+	return true, nil
 
 	return true, nil
 }

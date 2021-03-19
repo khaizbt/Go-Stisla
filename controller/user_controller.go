@@ -3,14 +3,17 @@ package controller
 import (
 	"fmt"
 	"github.com/gin-contrib/sessions"
+	"github.com/gin-gonic/gin"
 	"goshop/config"
 	"goshop/entity"
 	"goshop/helper"
 	"goshop/model"
 	"goshop/service"
+	"math/rand"
 	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"path"
+	"strconv"
+	"time"
 )
 
 const SESSION_ID = "id"
@@ -27,19 +30,19 @@ func NewUserController(userService service.UserService, authService config.AuthS
 type UserFormatter struct {
 	UserID int    `json:"id"`
 	Email  string `json:"email"`
-	Phone  int    `json:"phone"`
+	Phone  string `json:"phone"`
 	Token  string `json:"token"`
 }
 
 func FormatUser(user model.User, token string) UserFormatter { //Token akan didapatkan dari JWT
-	formater := UserFormatter{
+	formatter := UserFormatter{
 		UserID: user.ID,
 		Email:  user.Email,
 		Phone:  user.Phone,
 		Token:  token,
 	}
 
-	return formater
+	return formatter
 }
 
 func (h *userController) Login(c *gin.Context) {
@@ -138,23 +141,47 @@ func (h *userController) LoginBE(c *gin.Context) {
 }
 
 func (h *userController) RegisterStore(c *gin.Context) {
-	var input entity.DataUserInput
+
+	var input entity.CreateUserInput
 
 	err := c.ShouldBind(&input)
 
 	if err != nil {
-		c.Redirect(http.StatusUnprocessableEntity, "/register")
-		return
+		fmt.Println(err)
 	}
 
+	file, err := c.FormFile("avatar")
+
+	file.
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	filePath := "storage/" + file.Filename
+	c.SaveUploadedFile(file, filePath)
+
+
+	input.Avatar = filePath
 	_, err = h.userService.CreateUser(input)
 
 	if err != nil {
-		c.Redirect(http.StatusBadGateway, "/register")
+		c.Redirect(http.StatusBadGateway, "/register3")
 		return
 	}
 
-	c.Redirect(http.StatusFound, "/dashboard")
+	rand.Seed(time.Now().UTC().UnixNano())       //Ambil random karakter
+	otp := string(strconv.Itoa(rand.Int())[1:6]) //Convert to string agar bisa diambil 5 valuenya
+	NewCode, _ := strconv.Atoi(otp)              //Convert lagi ke int
+
+	//Send Otp via email
+	_, err = config.SendMail(input.Email, strconv.Itoa(NewCode))
+
+	if err != nil {
+		fmt.Println("Unable to send email", err)
+		return
+	}
+
+	c.Redirect(http.StatusFound, "/verify")
 }
 
 func (h *userController) RegisterIndex(c *gin.Context) {

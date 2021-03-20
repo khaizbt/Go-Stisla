@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"errors"
 	"goshop/config"
 	"goshop/model"
 
@@ -13,6 +14,9 @@ type (
 		FindByID(ID int) (model.User, error)
 		UpdateProfile(user model.User) (model.User, error)
 		CreateUser(user model.User) (model.User, error)
+		SaveOtp(otp model.UserCode) error
+		CheckOtp(email, otp string) (bool, error)
+		UpdatePassword(email, password string) error
 	}
 
 	repository struct {
@@ -58,11 +62,49 @@ func (r *repository) UpdateProfile(user model.User) (model.User, error) {
 }
 
 func (r *repository) CreateUser(user model.User) (model.User, error) {
-	err := r.db.Create(&user).Error
+	trx := r.db.Begin()
+	err := trx.Create(&user).Error
 
 	if err != nil {
 		return user, err
 	}
 
 	return user, nil
+}
+
+func (r *repository) SaveOtp(otp model.UserCode) error {
+	err := r.db.Create(&otp).Error
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (r *repository) CheckOtp(email, otp string) (bool, error) {
+	var otpCode model.UserCode
+	err := r.db.Where("email = ?", email).Where("code = ?", otp).Last(&otpCode).Error
+
+	if err != nil {
+		return false, err
+	}
+
+	if otpCode.ID == 0 {
+		return false, errors.New("Wrong Code!")
+	}
+
+	return true, nil
+}
+
+func (r *repository) UpdatePassword(email, password string) error {
+	var user model.User
+
+	err := r.db.Where("email = ?", email).Update("password", password).Find(&user).Error
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

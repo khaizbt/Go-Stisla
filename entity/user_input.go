@@ -23,4 +23,15 @@ type (
 		Phone    string `json:"phone" form:"phone"`
 		Avatar   string
 	}
+
+	OtpCodeInput struct {
+		Email string
+		Code  string `form:"code"`
+	}
+
+	ForgetPasswordUserInput struct {
+		Email           string
+		Password        string `form:"password"`
+		ConfirmPassword string `form:"confirm_password"`
+	}
 )

@@ -15,6 +15,8 @@ type (
 		GetUserById(ID int) (model.User, error)
 		UpdateProfile(input entity.DataUserInput) (bool, error)
 		CreateUser(input entity.CreateUserInput) (bool, error)
+		SaveOtp(email, code string) error
+		CheckOtp(input entity.OtpCodeInput) (bool, error)
 	}
 
 	service struct {
@@ -119,4 +121,48 @@ func (s *service) CreateUser(input entity.CreateUserInput) (bool, error) {
 	return true, nil
 
 	return true, nil
+}
+
+func (s *service) SaveOtp(email, code string) error {
+	otp := model.UserCode{}
+	otp.Email = email
+	otp.Code = code
+
+	err := s.repository.SaveOtp(otp)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (s *service) CheckOtp(input entity.OtpCodeInput) (bool, error) {
+	email := input.Email
+	code := input.Code
+
+	data, err := s.repository.CheckOtp(email, code)
+
+	if err != nil {
+		return false, err
+	}
+
+	return data, nil
+}
+
+func (s *service) UpdatePassword(input entity.ForgetPasswordUserInput) error { //To Forget Password
+	email := input.Email
+	password, err := bcrypt.GenerateFromPassword([]byte(input.Password), bcrypt.MinCost)
+
+	if err != nil {
+		return err
+	}
+
+	err = s.repository.UpdatePassword(email, string(password))
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

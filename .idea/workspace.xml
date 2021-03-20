@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e734f7b2-6637-4b77-8aac-a569462248c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+    <list default="true" id="e734f7b2-6637-4b77-8aac-a569462248c7" name="Default Changelist" comment="[ADDED] Verify Account via Code Email">
       <change afterPath="$PROJECT_DIR$/config/mail.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/view/pages/verify.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/user_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user_controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entity/user_input.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/user_input.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/user_model.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user_model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/user_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/user_repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/user_api.go" beforeDir="false" afterPath="$PROJECT_DIR$/route/user_api.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/user_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user_service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/view/pages/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/pages/register.html" afterDir="false" />
@@ -51,10 +51,13 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Go SHop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/view/pages" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Project\GoLang\Stisla\web\view\pages" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Project\GoLang\Stisla\route\web" />
       <recent name="E:\Project\GoLang\Stisla\route" />
@@ -72,7 +75,9 @@
     <MESSAGE value="[WIP] Session Login" />
     <MESSAGE value="[WIP] Register Account" />
     <MESSAGE value="[WIP] Register" />
-    <option name="LAST_COMMIT_MESSAGE" value="[WIP] Register" />
+    <MESSAGE value="[WIP] OTP Verify" />
+    <MESSAGE value="[ADDED] Verify Account via Code Email" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ADDED] Verify Account via Code Email" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

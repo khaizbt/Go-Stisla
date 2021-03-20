@@ -11,7 +11,6 @@ import (
 	"goshop/service"
 	"math/rand"
 	"net/http"
-	"path"
 	"strconv"
 	"time"
 )
@@ -136,7 +135,6 @@ func (h *userController) LoginBE(c *gin.Context) {
 		session.Save()
 	}
 
-	fmt.Println(token)
 	c.Redirect(http.StatusFound, "/register")
 }
 
@@ -152,14 +150,12 @@ func (h *userController) RegisterStore(c *gin.Context) {
 
 	file, err := c.FormFile("avatar")
 
-	file.
-
 	if err != nil {
 		fmt.Println(err)
 	}
+
 	filePath := "storage/" + file.Filename
 	c.SaveUploadedFile(file, filePath)
-
 
 	input.Avatar = filePath
 	_, err = h.userService.CreateUser(input)
@@ -171,17 +167,26 @@ func (h *userController) RegisterStore(c *gin.Context) {
 
 	rand.Seed(time.Now().UTC().UnixNano())       //Ambil random karakter
 	otp := string(strconv.Itoa(rand.Int())[1:6]) //Convert to string agar bisa diambil 5 valuenya
-	NewCode, _ := strconv.Atoi(otp)              //Convert lagi ke int
+
+	err = h.userService.SaveOtp(input.Email, otp)
 
 	//Send Otp via email
-	_, err = config.SendMail(input.Email, strconv.Itoa(NewCode))
+	_, err = config.SendMail(input.Email, otp)
 
 	if err != nil {
 		fmt.Println("Unable to send email", err)
 		return
 	}
 
-	c.Redirect(http.StatusFound, "/verify")
+	session := sessions.Default(c)
+
+	session.Set("email", input.Email)
+	session.Options(sessions.Options{
+		MaxAge: 3600 * 12, //Session Will Exp in 12 Hours
+	})
+	session.Save()
+
+	c.HTML(http.StatusFound, "pages/verify", gin.H{})
 }
 
 func (h *userController) RegisterIndex(c *gin.Context) {
@@ -206,7 +211,6 @@ func (h *userController) Dashboard(c *gin.Context) {
 }
 
 func (h *userController) DeleteSession(c *gin.Context) {
-	fmt.Println("ada")
 	session := sessions.Default(c)
 	session.Clear()
 	session.Set("token", nil)
@@ -216,5 +220,33 @@ func (h *userController) DeleteSession(c *gin.Context) {
 	session.Save()
 	fmt.Println(session.Get("token"))
 	//c.Redirect(301, "/login")
+}
+
+func (h *userController) Verify(c *gin.Context) {
+	var input entity.OtpCodeInput
+
+	session := sessions.Default(c)
+	email := session.Get("email")
+	input.Email = fmt.Sprintf("%v", email)
+	err := c.ShouldBind(&input)
+
+	if err != nil {
+		c.Redirect(http.StatusFound, "/login")
+		return
+	}
+
+	_, err = h.userService.CheckOtp(input)
+
+	if err != nil {
+		c.HTML(http.StatusFound, "pages/verify", gin.H{
+			"Error": err,
+		})
+	}
+
+	//changeStatus
+
+	//Redirect to dashboard
+	//Get JWT Token
+	c.Redirect(http.StatusFound, "/login")
 
 }

@@ -19,4 +19,11 @@ type (
 		CreatedAt  time.Time `json:"created_at"`
 		UpdatedAt  time.Time `json:"updated_at"`
 	}
+
+	UserCode struct {
+		ID        int       `json:"id"`
+		Email     string    `json:"email"`
+		Code      string    `json:"code"`
+		CreatedAt time.Time `json:"created_at"`
+	}
 )

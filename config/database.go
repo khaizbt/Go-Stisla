@@ -3,6 +3,7 @@ package config
 import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"goshop/model"
 )
 
 var db *gorm.DB
@@ -21,7 +22,7 @@ func init() {
 	if err != nil {
 		panic("failed to connect database")
 	}
-
+	err = database.AutoMigrate(&model.UserCode{})
 	if err != nil {
 		panic("migration failed")
 	}

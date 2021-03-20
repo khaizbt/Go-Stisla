@@ -231,8 +231,9 @@ func (h *userController) Verify(c *gin.Context) {
 	err := c.ShouldBind(&input)
 
 	if err != nil {
-		c.Redirect(http.StatusFound, "/login")
-		return
+		c.HTML(http.StatusFound, "pages/verify", gin.H{
+			"Error": err,
+		})
 	}
 
 	_, err = h.userService.CheckOtp(input)
@@ -244,9 +245,14 @@ func (h *userController) Verify(c *gin.Context) {
 	}
 
 	//changeStatus
+	err = h.userService.ChangeStatusUser(input.Email)
 
-	//Redirect to dashboard
-	//Get JWT Token
+	if err != nil {
+		c.HTML(http.StatusFound, "pages/verify", gin.H{
+			"Error": err,
+		})
+	}
+
 	c.Redirect(http.StatusFound, "/login")
 
 }

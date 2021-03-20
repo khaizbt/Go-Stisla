@@ -17,6 +17,7 @@ type (
 		SaveOtp(otp model.UserCode) error
 		CheckOtp(email, otp string) (bool, error)
 		UpdatePassword(email, password string) error
+		ChangeStatusUser(email string) error
 	}
 
 	repository struct {
@@ -66,9 +67,10 @@ func (r *repository) CreateUser(user model.User) (model.User, error) {
 	err := trx.Create(&user).Error
 
 	if err != nil {
+		trx.Rollback()
 		return user, err
 	}
-
+	trx.Commit()
 	return user, nil
 }
 
@@ -98,9 +100,18 @@ func (r *repository) CheckOtp(email, otp string) (bool, error) {
 }
 
 func (r *repository) UpdatePassword(email, password string) error {
-	var user model.User
 
-	err := r.db.Where("email = ?", email).Update("password", password).Find(&user).Error
+	err := r.db.Model(&model.User{}).Where("email = ?", email).Update("password", password).Error
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (r *repository) ChangeStatusUser(email string) error {
+	err := r.db.Model(&model.User{}).Where("email = ?", email).Update("status", "ACTIVE").Error
 
 	if err != nil {
 		return err

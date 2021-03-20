@@ -17,6 +17,7 @@ type (
 		CreateUser(input entity.CreateUserInput) (bool, error)
 		SaveOtp(email, code string) error
 		CheckOtp(input entity.OtpCodeInput) (bool, error)
+		ChangeStatusUser(email string) error
 	}
 
 	service struct {
@@ -118,9 +119,8 @@ func (s *service) CreateUser(input entity.CreateUserInput) (bool, error) {
 		return false, err
 	}
 
-	return true, nil
+	return true, nil //nolint:govet
 
-	return true, nil
 }
 
 func (s *service) SaveOtp(email, code string) error {
@@ -159,6 +159,16 @@ func (s *service) UpdatePassword(input entity.ForgetPasswordUserInput) error { /
 	}
 
 	err = s.repository.UpdatePassword(email, string(password))
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (s *service) ChangeStatusUser(email string) error {
+	err := s.repository.ChangeStatusUser(email)
 
 	if err != nil {
 		return err

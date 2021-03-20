@@ -27,6 +27,7 @@ func RouteUser(route *gin.Engine, service service.UserService) {
 	route.POST("/login", userController.LoginBE)
 	route.GET("/delete-sessions", userController.DeleteSession)
 	route.POST("/verify", userController.Verify)
+	route.GET("/dashboard", userController.Dashboard)
 
 	//route.GET("/verify", userController.VerifyIndex)
 }

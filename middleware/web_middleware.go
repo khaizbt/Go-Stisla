@@ -16,6 +16,7 @@ func WebMiddleware(authServive config.AuthService, userService service.UserServi
 	return func(c *gin.Context) {
 		session := sessions.Default(c)
 		tokens := session.Get("token")
+
 		authHeader := fmt.Sprintf("%v", tokens) //Convert to string
 
 		if !strings.Contains(authHeader, "Bearer") { //Cek apakah di auth Header ada kata Bearer atau tidak

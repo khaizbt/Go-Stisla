@@ -128,7 +128,9 @@ func (h *userController) LoginBE(c *gin.Context) {
 
 	session := sessions.Default(c)
 	if session.Get("token") != token {
-		session.Set("token", token)
+		session.Set("token", "Bearer "+token)
+		session.Set("email", loggedInUser.Email)
+		session.Set("name", loggedInUser.Name)
 		session.Options(sessions.Options{
 			MaxAge: 3600 * 12, //Session Will Exp in 12 Hours
 		})
@@ -207,7 +209,22 @@ func (h *userController) LoginIndex(c *gin.Context) {
 }
 
 func (h *userController) Dashboard(c *gin.Context) {
-	c.HTML(http.StatusOK, "pages/dashboard", gin.H{})
+	//fmt.Println(UserSession)
+	c.HTML(http.StatusOK, "pages/dashboard", gin.H{
+		"Session": UserSession(c),
+	})
+}
+
+func UserSession(c *gin.Context) map[string]string {
+	session := sessions.Default(c)
+	var sessionData map[string]string
+	sessionData = map[string]string{}
+	email := session.Get("email")
+	name := session.Get("name")
+	sessionData["Email"] = fmt.Sprintf("%v", email)
+	sessionData["Name"] = fmt.Sprintf("%v", name)
+
+	return sessionData
 }
 
 func (h *userController) DeleteSession(c *gin.Context) {

@@ -137,7 +137,7 @@ func (h *userController) LoginBE(c *gin.Context) {
 		session.Save()
 	}
 
-	c.Redirect(http.StatusFound, "/register")
+	c.Redirect(http.StatusFound, "/dashboard")
 }
 
 func (h *userController) RegisterStore(c *gin.Context) {
@@ -217,8 +217,8 @@ func (h *userController) Dashboard(c *gin.Context) {
 
 func UserSession(c *gin.Context) map[string]string {
 	session := sessions.Default(c)
-	var sessionData map[string]string
-	sessionData = map[string]string{}
+
+	sessionData := map[string]string{}
 	email := session.Get("email")
 	name := session.Get("name")
 	sessionData["Email"] = fmt.Sprintf("%v", email)

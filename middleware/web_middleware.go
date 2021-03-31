@@ -49,6 +49,10 @@ func WebMiddleware(authServive config.AuthService, userService service.UserServi
 			return
 		}
 
+		//c.HTML(http.StatusOK, "base/navbar", gin.H{
+		//	"Name": "Khaiz Badaru Tammam",
+		//})
+
 		userID := int(claim["user_id"].(float64)) //Claim type datanya MapClaim, harus diubah ke int(sesuai parameter GetUserByID)
 		role := claim["role"]
 

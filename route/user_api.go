@@ -26,9 +26,10 @@ func RouteUser(route *gin.Engine, service service.UserService) {
 	route.GET("/register", userController.RegisterIndex)
 	route.POST("/register", userController.RegisterStore)
 	route.POST("/login", userController.LoginBE)
-	route.GET("/delete-sessions", userController.DeleteSession)
+	route.GET("/logout", userController.LogOut)
 	route.POST("/verify", userController.Verify)
 	route.GET("/dashboard", middlewareWeb, userController.Dashboard)
+	route.GET("/my-profile", middlewareWeb, userController.MyProfile)
 
 	//route.GET("/verify", userController.VerifyIndex)
 }

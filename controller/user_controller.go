@@ -114,8 +114,6 @@ func (h *userController) LoginBE(c *gin.Context) {
 
 	loggedInUser, err := h.userService.Login(input)
 
-	fmt.Println(err)
-
 	if err != nil {
 		c.HTML(http.StatusOK, "pages/login", gin.H{
 			"Error": "Credential Not Found",
@@ -128,9 +126,15 @@ func (h *userController) LoginBE(c *gin.Context) {
 
 	session := sessions.Default(c)
 	if session.Get("token") != token {
+
 		session.Set("token", "Bearer "+token)
 		session.Set("email", loggedInUser.Email)
 		session.Set("name", loggedInUser.Name)
+		session.Set("id", loggedInUser.ID)
+
+		//SessionData["Email"] = loggedInUser.Email
+		//SessionData["User_id"] = loggedInUser.ID
+
 		session.Options(sessions.Options{
 			MaxAge: 3600 * 12, //Session Will Exp in 12 Hours
 		})
@@ -219,15 +223,14 @@ func UserSession(c *gin.Context) map[string]string {
 	session := sessions.Default(c)
 
 	sessionData := map[string]string{}
-	email := session.Get("email")
-	name := session.Get("name")
-	sessionData["Email"] = fmt.Sprintf("%v", email)
-	sessionData["Name"] = fmt.Sprintf("%v", name)
-
+	//session.
+	sessionData["Email"] = fmt.Sprintf("%v", session.Get("email"))
+	sessionData["Name"] = fmt.Sprintf("%v", session.Get("name"))
+	sessionData["id"] = fmt.Sprintf("%v", session.Get("id"))
 	return sessionData
 }
 
-func (h *userController) DeleteSession(c *gin.Context) {
+func (h *userController) LogOut(c *gin.Context) {
 	session := sessions.Default(c)
 	session.Clear()
 	session.Set("token", nil)
@@ -235,8 +238,8 @@ func (h *userController) DeleteSession(c *gin.Context) {
 		MaxAge: -1,
 	})
 	session.Save()
-	fmt.Println(session.Get("token"))
-	//c.Redirect(301, "/login")
+
+	c.Redirect(http.StatusFound, "/login")
 }
 
 func (h *userController) Verify(c *gin.Context) {
@@ -272,4 +275,26 @@ func (h *userController) Verify(c *gin.Context) {
 
 	c.Redirect(http.StatusFound, "/login")
 
+}
+
+func (h *userController) MyProfile(c *gin.Context) {
+	user, err := h.userService.GetUserById(c.MustGet("currentUser").(model.User).ID)
+
+	if err != nil {
+		c.Redirect(http.StatusFound, "/dashboard")
+	}
+
+	data := map[string]interface{}{
+		"Name":     user.Name,
+		"Email":    user.Email,
+		"Status":   user.Status,
+		"Phone":    user.Phone,
+		"Address":  user.Address,
+		"Username": user.Username,
+	}
+
+	c.HTML(http.StatusOK, "pages/profile", gin.H{
+		"Session": UserSession(c),
+		"Data":    data,
+	})
 }

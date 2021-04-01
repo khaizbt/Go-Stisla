@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e734f7b2-6637-4b77-8aac-a569462248c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/view/base/navbar.html" afterDir="false" />
+    <list default="true" id="e734f7b2-6637-4b77-8aac-a569462248c7" name="Default Changelist" comment="[ADDED] Template Split HTML">
+      <change afterPath="$PROJECT_DIR$/web/view/pages/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/user_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user_controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/web_middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/web_middleware.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/view/pages/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/pages/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/user_api.go" beforeDir="false" afterPath="$PROJECT_DIR$/route/user_api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/view/base/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/view/base/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/view/pages" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
@@ -85,7 +85,8 @@
     <MESSAGE value="[WIP] OTP Verify" />
     <MESSAGE value="[ADDED] Verify Account via Code Email" />
     <MESSAGE value="[ADDED] Session Map to HTML" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ADDED] Session Map to HTML" />
+    <MESSAGE value="[ADDED] Template Split HTML" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ADDED] Template Split HTML" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
